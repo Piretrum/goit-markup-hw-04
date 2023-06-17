@@ -12,6 +12,7 @@
   --color-white: #ffffff;
   --color-modal-background: #fcfcfc;
   --color-page-backgraund: #e5e5e5;
+  --transition-effect: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -163,11 +164,30 @@ footer {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--color-dark-navy-blue);
+  transition: color var(--transition-effect);
 }
 
 .header-menu-link:hover,
 .header-menu-link:focus {
   color: var(--color-pressed-state);
+}
+
+.current {
+position: relative;
+}
+
+.current::after {
+content: "";
+position: absolute;
+left: 0px;
+bottom: -1px;
+width: 100%;
+height: 4px;
+
+border-radius: 2px;
+
+background: #404BBF;
+
 }
 
 .contact {
@@ -183,6 +203,7 @@ footer {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--color-slate);
+  transition: color var(--transition-effect);
 }
 
 .contact-link:hover,
@@ -192,13 +213,21 @@ footer {
 
 /** ----------------HERO---------------*/
 
+ 
 .hero {
   background-color: var(--color-dark-navy-blue);
   padding-bottom: 188px;
   padding-top: 188px;
+  background-image: linear-gradient(to bottom, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),  url(../images/hero-image.jpg);
+  max-width: 1440px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: auto;
 }
 
 .hero-container {
+  
 }
 
 .hero-title {
@@ -232,6 +261,7 @@ footer {
   background-color: var(--color-primary-brand);
   border-radius: 4px;
   border: none;
+  transition: background-color var(--transition-effect);
 }
 
 .hero-btn:hover,
@@ -247,6 +277,7 @@ footer {
   letter-spacing: 0.02em;
   text-transform: capitalize;
   color: var(--color-dark-navy-blue);
+  margin-bottom: 72px;
 }
 
 /** ----------------ADVANTAGES эдвАнтеджес---------------*/
@@ -267,7 +298,17 @@ footer {
 }
 
 .adv-item {
-  width: calc((100% - 72px) / 4);
+  flex-basis: calc((100% - 72px) / 4);
+}
+
+.adv-box-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 112px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background: #f4f4fd;
 }
 
 .adv-subtitle {
@@ -281,14 +322,13 @@ footer {
 .products {
 }
 .products-title {
-  margin-bottom: 72px;
 }
 .products-list {
   display: flex;
   gap: 24px;
 }
 .products-item {
-  width: calc((100% - 24px * 2) / 3);
+  flex-basis: calc((100% - 24px * 2) / 3);
 }
 
 /** --------------OUR-TEAM---------------*/
@@ -308,6 +348,7 @@ footer {
   background-color: var(--color-white);
   border-radius: 0px 0px 4px 4px;
   width: calc((100% - 72px) / 4);
+box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .team-box-text {
@@ -320,6 +361,84 @@ footer {
 }
 .team-text {
   text-align: center;
+  margin: 8px;
+}
+
+.team-soc-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-soc-item {
+}
+.soc-item {
+}
+
+.team-soc-link {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--color-primary-brand);
+  transition: background-color var(--transition-effect);
+}
+
+.team-soc-link:hover,
+.team-soc-link:focus {
+  background-color: var(--color-pressed-state);
+}
+
+.soc-icon {
+  fill: var(--color-light-cloud);
+}
+.team-soc-icon {
+}
+
+/** --------------CUSTOMERS--------------*/
+
+.customers {
+  padding: 120px 0;
+}
+.customers-container {
+}
+
+.customers-list {
+  display: flex;
+  gap: 24px;
+}
+
+.customers-item {
+  height: 88px;
+  flex-basis: calc((100% - 24px * 5) / 6);
+}
+
+.cust-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 4px;
+  border: 1px solid #8e8f99;
+  color: #8e8f99;
+  
+  transition: color var(--transition-effect),
+  border-color: var(--transition-effect);
+}
+
+
+.cust-link:hover,
+.cust-link:focus {
+  color: var(--color-pressed-state);
+  border-color: currentColor;
+}
+
+.cust-icon {
+  fill: currentColor;
 }
 
 /** ----------------FOOTER---------------*/
@@ -331,6 +450,8 @@ footer {
 }
 
 .footer-container {
+  display: flex;
+  gap: 120px;
 }
 
 .footer-logo {
@@ -346,6 +467,49 @@ footer {
   width: 264px;
   color: var(--color-light-cloud);
 }
+
+/* Соц.іконки в футере */
+.footer-box-soc {
+ width: 208px;
+}
+
+.footer-soc-text {
+margin-bottom: 16px;
+font-weight: 500;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: 0.02em;
+color: #FFFFFF;   
+}
+
+.footer-soc-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.f-soc-link {
+
+}
+
+.footer-soc-link {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--color-primary-brand);
+  transition: background-color var(--transition-effect);
+}
+
+.footer-soc-link:hover,
+.footer-soc-link:focus {
+  background-color: var(--color-green);
+}
+
+
+ 
 
 /** ----------------PORTFOLIO.html---------------*/
 
@@ -378,6 +542,8 @@ footer {
   border-radius: 4px;
 
   padding: 12px 24px;
+  transition: color var(--transition-effect),
+    background-color var(--transition-effect), border var(--transition-effect), box-shadow var(--transition-effect);
 }
 
 .prtf-btn:hover,
@@ -385,6 +551,7 @@ footer {
   color: var(--color-white);
   background-color: var(--color-pressed-state);
   border: 1px solid transparent;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .prtf-cards {
@@ -395,14 +562,52 @@ footer {
 }
 
 .prtf-cards-item {
-  width: calc((100% - 2 * 24px) / 3);
+  flex-basis: calc((100% - 2 * 24px) / 3);
 }
+
+
 
 .prtf-box-text {
   padding: 32px 16px;
   border: 1px solid #e7e9fc;
   border-top: none;
 }
+
+.prtf-box-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.prtf-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--color-light-cloud);
+  background-color: var(--color-primary-brand);
+
+  transform: translateY(100%);
+  transition: transform var(--transition-effect), border var(--transition-effect), box-shadow var(--transition-effect);
+  
+}
+
+.prtf-card-link:hover .prtf-overlay,
+.prtf-card-link:focus .prtf-overlay {
+  transform: translateY(0);   
+}
+
+.prtf-card-link:hover,
+.prtf-card-link:focus {
+  border: 1px solid #F4F4FD;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
 
 .prtf-subtitle {
   margin-bottom: 8px;
@@ -412,3 +617,83 @@ footer {
 .prtf-cards-text {
   padding-left: 16px;
 }
+
+
+/* ------------МОДАЛКА-------- */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity var(--transition-effect), visibility var(--transition-effect);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--transition-effect);
+width: 408px;
+min-height: 584px;
+background: #FCFCFC;
+box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+border-radius: 4px;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.modal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #E7E9FC;
+border: 1px solid rgba(0, 0, 0, 0.1);
+transition: background-color var(--transition-effect), fill var(--transition-effect) ;
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+  background-color: var(--color-primary-brand);
+}
+
+.modal-btn:hover .modal-close-icon,
+.modal-btn:focus .modal-close-icon {
+  fill: var(--color-white);
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* КАК ДОБАВИТЬ ФОКУС НА ЗАКРИВ. КНОПКУ */
+
+/* В завданні є: «D6» 
+Спочатку модальне вікно і бекдроп 
+приховані за допомогою класу is-hidden на бекдропі, 
+в селекторі якого 
+використовуються властивості 
+visibility, opacity і pointer-events. 
+А в конспекті цього немає
+
+
+Daria Lyman
+  22 д. назад
+Ось такі стилі мають бути для класу
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+} */
