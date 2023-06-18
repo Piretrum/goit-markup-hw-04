@@ -13,6 +13,7 @@
   --color-modal-background: #fcfcfc;
   --color-page-backgraund: #e5e5e5;
   --transition-effect: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
 }
 
 body {
@@ -117,6 +118,11 @@ footer {
 
 .header {
   border-bottom: 1px solid var(--color-cornflower);
+  transition: box-shadow var(--transition-effect);
+}
+
+.header:hover {
+box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);;
 }
 
 .header-container {
@@ -174,6 +180,7 @@ footer {
 
 .current {
 position: relative;
+color: var(--color-pressed-state);
 }
 
 .current::after {
@@ -352,7 +359,7 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
 }
 
 .team-box-text {
-  padding: 32px 16px;
+  padding: 32px 0;
 }
 
 .team-subtitle {
@@ -366,7 +373,8 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
 
 .team-soc-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 24px;
   align-items: center;
 }
 
@@ -421,20 +429,17 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
   justify-content: center;
   width: 100%;
   height: 100%;
-
   border-radius: 4px;
   border: 1px solid #8e8f99;
   color: #8e8f99;
-  
-  transition: color var(--transition-effect),
-  border-color: var(--transition-effect);
+  transition: color var(--transition-effect), border-color: var(--transition-effect);
 }
 
 
 .cust-link:hover,
 .cust-link:focus {
   color: var(--color-pressed-state);
-  border-color: currentColor;
+  border-color: var(--color-pressed-state);
 }
 
 .cust-icon {
@@ -451,7 +456,12 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
 
 .footer-container {
   display: flex;
-  gap: 120px;
+   
+  align-items: baseline;
+}
+
+.footer-box-logo {
+  margin-right: 120px;
 }
 
 .footer-logo {
@@ -521,6 +531,8 @@ color: #FFFFFF;
 .prtf-container {
 }
 
+/* ---portfolio-menu-filter--- */
+
 .prtf-filter {
   display: flex;
   gap: 24px;
@@ -554,6 +566,8 @@ color: #FFFFFF;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
+/* ------portfolio-cards----- */
+
 .prtf-cards {
   display: flex;
   flex-wrap: wrap;
@@ -575,6 +589,7 @@ color: #FFFFFF;
 
 .prtf-card-link {
   display: block;
+  transition: box-shadow var(--transition-effect);
 }
 
 .prtf-box-img {
@@ -582,7 +597,9 @@ color: #FFFFFF;
   overflow: hidden;
 }
 
-.prtf-overlay {
+/* ---portfolio-overlay--- */
+
+.overlay-text {
   position: absolute;
   top: 0;
   left: 0;
@@ -596,18 +613,17 @@ color: #FFFFFF;
   color: var(--color-light-cloud);
   background-color: var(--color-primary-brand);
   transform: translateY(100%);
-  transition: transform var(--transition-effect), border var(--transition-effect), box-shadow var(--transition-effect);
+  transition: transform var(--transition-effect),  box-shadow var(--transition-effect);
 }
 
-.prtf-card-link:hover .prtf-overlay,
-.prtf-card-link:focus .prtf-overlay {
+.prtf-card-link:hover .overlay-text,
+.prtf-card-link:focus .overlay-text {
   transform: translateY(0);   
 }
 
 .prtf-card-link:hover,
 .prtf-card-link:focus {
-  border: 1px solid #F4F4FD;
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .prtf-subtitle {
@@ -619,7 +635,7 @@ color: #FFFFFF;
   padding-left: 16px;
 }
 
-/* ------------МОДАЛКА-------- */
+/* ------------MODAL-------- */
 
 .backdrop {
   position: fixed;
@@ -655,17 +671,23 @@ border-radius: 4px;
   position: absolute;
   top: 24px;
   right: 24px;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
   border-radius: 50%;
   background: #E7E9FC;
-border: 1px solid rgba(0, 0, 0, 0.1);
-transition: background-color var(--transition-effect), fill var(--transition-effect) ;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color var(--transition-effect),;
 }
 
 .modal-btn:hover,
 .modal-btn:focus {
-  background-color: var(--color-primary-brand);
+  background-color: var(--color-pressed-state);
+  border: none;
+}
+
+.modal-close-icon {
+  transition: fill var(--transition-effect);
 }
 
 .modal-btn:hover .modal-close-icon,
