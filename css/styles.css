@@ -118,12 +118,9 @@ footer {
 
 .header {
   border-bottom: 1px solid var(--color-cornflower);
-  transition: box-shadow var(--transition-effect);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);;
 }
 
-.header:hover {
-box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);;
-}
 
 .header-container {
   display: flex;
@@ -480,7 +477,7 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
 
 /* Соц.іконки в футере */
 .footer-box-soc {
- width: 208px;
+ /* width: 208px; */
 }
 
 .footer-soc-text {
@@ -494,7 +491,7 @@ color: #FFFFFF;
 
 .footer-soc-list {
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
   align-items: center;
 }
 
