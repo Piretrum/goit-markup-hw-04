@@ -573,6 +573,10 @@ color: #FFFFFF;
   border-top: none;
 }
 
+.prtf-card-link {
+  display: block;
+}
+
 .prtf-box-img {
   position: relative;
   overflow: hidden;
@@ -591,10 +595,8 @@ color: #FFFFFF;
   letter-spacing: 0.02em;
   color: var(--color-light-cloud);
   background-color: var(--color-primary-brand);
-
   transform: translateY(100%);
   transition: transform var(--transition-effect), border var(--transition-effect), box-shadow var(--transition-effect);
-  
 }
 
 .prtf-card-link:hover .prtf-overlay,
@@ -608,7 +610,6 @@ color: #FFFFFF;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
-
 .prtf-subtitle {
   margin-bottom: 8px;
   padding-left: 16px;
@@ -617,7 +618,6 @@ color: #FFFFFF;
 .prtf-cards-text {
   padding-left: 16px;
 }
-
 
 /* ------------МОДАЛКА-------- */
 
