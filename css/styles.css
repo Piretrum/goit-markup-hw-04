@@ -679,8 +679,8 @@ footer {
   border-radius: 50%;
   background: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: background-color var(--transition-effect) border
-    var(--transition-effect);
+  transition: background-color var(--transition-effect),
+    border var(--transition-effect);
 }
 
 .modal-btn:hover,
